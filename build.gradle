@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group 'io.github.shaquu'
+version '1.0'
+
+sourceCompatibility = 1.8
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'https://repository.jboss.org/nexus/content/groups/public'}
+    mavenCentral()
+    maven { url 'http://smartbearsoftware.com/repository/maven2/' }
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/javax.jms/jms
+    compileOnly group: 'com.smartbear.soapui', name: 'soapui', version: '5.4.0'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Custom SoapUI Test Step',
+                'Implementation-Version': version,
+                'Main-Class': 'io.github.shaquu.EmailTestStep'
+    }
+    baseName = project.name + '-all'
+    with jar
+}
