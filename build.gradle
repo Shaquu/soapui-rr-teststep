@@ -20,9 +20,9 @@ dependencies {
 
 task fatJar(type: Jar) {
     manifest {
-        attributes 'Implementation-Title': 'Custom SoapUI Test Step',
+        attributes 'Implementation-Title': 'RequestResponse Test Step',
                 'Implementation-Version': version,
-                'Main-Class': 'io.github.shaquu.EmailTestStep'
+                'Main-Class': 'io.github.shaquu.RRTestStep'
     }
     baseName = project.name + '-all'
     with jar
